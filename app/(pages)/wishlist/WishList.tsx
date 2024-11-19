@@ -12,7 +12,7 @@ const Wishlist = () => {
   return (
     <div className='flex flex-col gap-8 bg-[#242A32] min-h-screen'>
           <header className="flex justify-between  items-center p-4">
-        <Link href={'/search'}>
+        <Link href={'/'}>
           <ChevronLeft className="" />
         </Link>
 

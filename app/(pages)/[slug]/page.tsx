@@ -73,7 +73,7 @@ if (isLoading || !movie && !genre) return <div><SkeletonCard/></div>;
   return (
     <div className="min-h-screen flex flex-col gap-2 bg-[#242A32] text-white p-4 lg:p-12">
       <header className="flex justify-between items-center p-4">
-        <Link href={'/search'}>
+        <Link href={'/'}>
           <ChevronLeft className="" />
         </Link>
 
