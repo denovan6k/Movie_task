@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Movie App - Next.js, typescript, tailwind css Project
 
-## Getting Started
+This is a Next.js-based application that fetches and displays movie data, allowing users to add movies to their wishlist and manage favorites. The app uses state management and various components to handle data fetching, UI rendering, and user interaction.
 
-First, run the development server:
+## Project Setup
+
+### 1. Clone the Repository
+
+Start by cloning the repository to your local machine:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/movie-app.git
+cd movie-app
+```
+### 2. install Npm 
+```bash
+npm install
+
+```
+### 3. Setup Environment Variables
+
+For accessing movie data, this project uses the [The Movie Database API](https://developer.themoviedb.org/reference/intro/getting-started). You can get started by checking out their [API documentation](https://developer.themoviedb.org/reference/intro/getting-started).
+
+```bash
+NEXT_PUBLIC_API_TOKEN=https://api.example.com  # Example API URL
+
+```
+### 4. Folder Structure
+```bash
+
+├── app/                    # Main app directory for pages and components
+│   ├── components/         # Shared UI components like `Card`, `Search`, `Fave`, etc.
+│   │   ├── Card.tsx        # Displays movie cards
+│   │   ├── Search.tsx      # Search input for querying movies
+│   │   ├── Fave.tsx        # Displays favorite movies
+│   │   └── SkeletonCard.tsx # Skeleton loader for lazy-loaded components
+│   ├── pages/              # Pages in the app
+│   │   ├── wishlist.tsx    # Wishlist page
+│   │   ├── slug/           # Home page or other specific pages
+│   │   │   └── page.tsx
+│   │   ├── Wishlist/       # Another folder for a Wishlist-specific page
+│   │   │   └── page.tsx
+│   ├── store.tsx              # Store for state management (e.g., Zustand)
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 5. Run the development
+```bash
+npm run dev
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Project Design Choices
 
-## Learn More
+## 1. **Suspense & Lazy Loading**
+   - **Suspense:** Used for lazy loading components like `Fave` with `Suspense` wrapped around it to improve performance and user experience by only loading components when needed.
+   - **Skeleton Loader:** `SkeletonCard.tsx` is used to provide a loading state, enhancing UX when movie data is being fetched asynchronously, making the UI feel responsive.
 
-To learn more about Next.js, take a look at the following resources:
+## 2. **Routing & Page Structure**
+   - **File-Based Routing:** Pages are organized under the `pages/` directory following Next.js conventions for automatic routing.
+   - **Dynamic Routing:** Dynamic pages like `slug/` and `wishlist.tsx` enable route-based content changes. This structure supports easy scaling as new pages or dynamic routes are added.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 3. **Search & Filtering with `useSearchParams`**
+   - **Search Handling:** The `Home` component uses `searchParams` to access the query string for filtering movie results.
+   - **Dynamic Filtering:** `Card.tsx` filters movies based on the query param, ensuring the movie list updates dynamically based on user input.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+
+    
