@@ -23,7 +23,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Moviedb",
+  title: "Sabi Movie",
   description: "powered by Denovan",
 };
 
